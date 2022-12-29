@@ -1,0 +1,361 @@
+1.Print odd numbers in an array
+    Anonymous function:
+
+    var odds = []
+    var oddNumbers=function(...params){
+        let x=params;
+        for(i=0; i<x.length; i++){
+            if(((x[i]) % 2) === 1){
+            odds.push(x[i]) ;
+            }
+        }
+    }
+    oddNumbers(12,13,14,15,16,17,18,19,20)
+    console.log(odds)
+
+   IIFE:
+    var odds = [];
+    (function odd(...params){
+            
+        let x=params;
+        for(i=0; i<x.length; i++){
+            if(((x[i]) % 2) === 1){
+            odds.push(x[i]) ;
+            }
+        }
+    }
+    (12,13,14,15,16,17,18,19,20)
+    );
+    console.log(odds) 
+
+2. Convert all the strings to title caps in a string array
+
+    Anonymous function:
+        const titleCase =  function(str) {
+            str = str.toLowerCase().split(' ');
+        for(i=0; i<str.length; i++) {
+            str[i]=str[i].charAt(0).toUpperCase()+str[i].slice(1);
+        }
+         return arr = str.join(' ');          
+        }
+      console.log(titleCase('Hello world guvi')) ;
+
+
+    IIFE Function
+    (function titleCase(str) {
+          str = str.toLowerCase().split(' ');
+        for(i=0; i<str.length; i++) {
+            str[i]=str[i].charAt(0).toUpperCase()+str[i].slice(1);
+        }
+          arr = str.join(' ');
+          console.log(arr);
+        })
+        ('Hello world guvi');
+
+3. Sum of all numbers in an array
+
+    anonymous function:
+        
+    const sum =  function(...str) {
+        let sum=0
+        for(i=0; i<str.length; i++) {
+            sum+=str[i];
+            console.log(sum)
+        }
+         return sum;          
+        }
+      console.log(sum(12,13,14,15,15,16)) ;
+
+      IIFE function:
+
+      (function sum(...str) {
+        let sum=0
+        for(i=0; i<str.length; i++) {
+            sum+=str[i];
+        }
+         console.log(sum);          
+        })
+      (12,13,14,15,15,16);
+
+4. Return all the prime numbers in an array
+
+    Anonymous function:
+
+    const primeNumbers = function(...str) {
+        numbers = str.filter(number => {
+            for(i=2; i<=Math.sqrt(number); i++) {
+                if(number % i === 0) return false;
+            }
+            return true;
+        })
+        console.log(numbers);
+    }
+      primeNumbers(2,3,12,13,14,15,17,16);
+
+
+    IIFE Function:
+
+    (function(...str) {
+        numbers = str.filter(number => {
+            for(i=2; i<=Math.sqrt(number); i++) {
+                if(number % i === 0) return false;
+            }
+            return true;
+        })
+        console.log(numbers);
+    })
+    (2,3,12,13,14,15,17,16,5,7);
+
+5. Return all the palindromes in an array
+
+Anonymous function:
+
+        function isPalindrome(N){
+            const str = N;
+            const length = str.length;
+            for(i=0; i<parseInt(length/2,10); i++){
+                if(str[i] != str[length-1-i]){
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        const arr=['did', 'sambar','nun', 'noon', 'wow', 'tenet', 'hello'];
+        let ans =[];
+        const palindrome = function (arr) {
+            for(let i=0; i<arr.length; i++){
+                pal = isPalindrome(arr[i])
+                if(pal == true) 
+                ans.push(arr[i])
+                }  
+            }
+
+        palindrome(arr)
+        console.log(ans)
+
+    IIFE function:
+
+        function isPalindrome(N){
+            const str = N;
+            const length = str.length;
+            for(i=0; i<parseInt(length/2,10); i++){
+                if(str[i] != str[length-1-i]){
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        const arr=['did', 'sambar','nun', 'noon', 'wow', 'tenet', 'hello'];
+        let ans =[];
+        (function (arr) {
+            for(let i=0; i<arr.length; i++){
+                pal = isPalindrome(arr[i])
+                if(pal == true) 
+                ans.push(arr[i])
+                }  
+        }) (arr)
+
+
+        console.log(ans)
+
+
+
+6.Return median of two sorted arrays of the same size.
+
+ Anonymous function:
+
+        const median = function(arr1,arr2){
+            var res = arr1.concat(arr2)
+            var sortedValue = res.sort(function(a,b){return(a-b)})
+            var strlength = sortedValue.length
+            if(strlength % 2 == 1){
+            var str = strlength/2
+            var round =Math.round(str)
+            console.log(round)
+            return res[round-1]
+            } else {
+                var str = strlength/2
+                var med = (res[str] + res[str-1])/2
+                return med;
+            }
+
+        }
+
+        arr1=[1,12,15,26]
+        arr2=[2,13,17,30,45]
+        console.log(median(arr1,arr2));
+
+ IIFE Function:
+
+        (function (){
+    let arr1=[1,12,15,26]
+    let arr2=[2,13,17,30,45]   
+    var res = arr1.concat(arr2)
+    var sortedValue = res.sort(function(a,b){return(a-b)})
+    console.log(sortedValue)
+    var strlength = sortedValue.length
+    if(strlength % 2 == 1){
+       var str = strlength/2
+       var round =Math.round(str)
+       console.log(round)
+       console.log(res[round-1])
+    } else {
+        var str = strlength/2
+        var med = (res[str] + res[str-1])/2
+        console.log(med);
+    }
+    })();
+
+7. Remove duplicates from an array
+
+Anonymous function:
+
+    const dups = function(array){
+        let dup = [...new Set(array)];
+        console.log(dup);
+    }
+
+    array = [1,1,2,2,55,44,55,6]
+    console.log(dups(array))
+
+IIFE function:
+    (function (array){
+        array = [1,1,2,2,55,44,55,6]
+        let dup = [...new Set(array)];
+        console.log(dup);
+    })();
+
+
+8. Rotate an array by k times
+
+    Anonymous function:
+
+        const rotateArray2 = function(nums, k) {
+
+            function reverse(arr, start, end) {
+            while (start < end) {
+                [arr[start], arr[end]] = [arr[end], arr[start]];
+                start++;
+                end--;
+            }
+            }
+        
+            k %= nums.length;
+        
+            reverse(nums, 0, (nums.length - 1));
+            reverse(nums, 0, (k - 1));
+            reverse(nums, k, (nums.length - 1));
+        
+            return nums;
+        }
+        
+        nums = [1, 2, 3, 4, 5]
+
+        k = 7
+        console.log(rotateArray2(nums, k)) 
+
+IIFE Function:
+
+    (function() {
+    const nums = [1, 2, 3, 4, 5]
+    let k = 2
+
+    function reverse(arr, start, end) {
+      while (start < end) {
+        [arr[start], arr[end]] = [arr[end], arr[start]];
+        start++;
+        end--;
+      }
+    }
+  
+    k %= nums.length;
+  
+    reverse(nums, 0, (nums.length - 1));
+    reverse(nums, 0, (k - 1));
+    reverse(nums, k, (nums.length - 1));
+    console.log(nums)
+    return nums;
+    })();
+
+
+Arrow Function:
+
+a. Print odd numbers in an array:
+
+    var odds = []
+    var oddNumbers=(...params) => {
+        let x=params;
+        for(i=0; i<x.length; i++){
+            if(((x[i]) % 2) === 1){
+            odds.push(x[i]) ;
+            }
+        }
+    }
+    oddNumbers(12,13,14,15,16,17,18,19,20)
+    console.log(odds)
+
+b. Convert all the strings to title caps in a string array
+
+        const titleCase =  (str) => {
+        str = str.toLowerCase().split(' ');
+        for(i=0; i<str.length; i++) {
+            str[i]=str[i].charAt(0).toUpperCase()+str[i].slice(1);
+        }
+        return arr = str.join(' ');          
+        }
+        console.log(titleCase('hello world guvi')) ;
+
+c. Sum of all numbers in an array
+
+    
+        const sum =  (...str) => {
+            let sum=0
+            for(i=0; i<str.length; i++) {
+                sum+=str[i];
+                console.log(sum)
+            }
+            return sum;          
+            }
+        console.log(sum(12,13,14,15,15,16)) ;
+
+d. Return all the prime numbers in an array
+
+    const primeNumbers = (...str) => {
+    numbers = str.filter(number => {
+        for(i=2; i<=Math.sqrt(number); i++) {
+            if(number % i === 0) return false;
+        }
+        return true;
+        })
+        console.log(numbers);
+    }
+    primeNumbers(2,3,12,13,14,15,17,16);
+
+e. Return all the palindromes in an array
+
+
+    function isPalindrome(N){
+        const str = N;
+        const length = str.length;
+        for(i=0; i<length/2; i++){
+            if(str[i] != str[length-1-i]){
+                return false;
+            }
+            return true;
+        }
+    }
+
+    const arr=['did', 'sambar','nun', 'noon', 'wow', 'tenet', 'hello'];
+    let ans =[];
+    const palindrome = (arr) => {
+        for(let i=0; i<arr.length; i++){
+            pal = isPalindrome(arr[i])
+            if(pal == true) 
+            ans.push(arr[i])
+            }  
+        }
+
+    palindrome(arr)
+    console.log(ans)
